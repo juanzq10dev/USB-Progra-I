@@ -18,13 +18,13 @@ public class NumerosPrimos {
                     numerosPrimos.add(divisor);
                 }
                 divisor = divisor + 1;
-            }
-            else{
-                numerosPrimos.add(divisor);
+            } else {
+                if (producto == 0) {
+                    numerosPrimos.add(divisor);
+                }
                 divisor = divisor + 1;
             }
         }
         return numerosPrimos;
     }
 }
-
