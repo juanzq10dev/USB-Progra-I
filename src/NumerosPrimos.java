@@ -20,7 +20,7 @@ public class NumerosPrimos {
                 divisor = divisor + 1;
             }
             else{
-                numerosPrimos.add(producto);
+                numerosPrimos.add(divisor);
                 divisor = divisor + 1;
             }
         }
