@@ -2,6 +2,7 @@
 import java.util.*;
 
 public class NumerosPrimos {
+    
     public ArrayList<Integer> generate(int numeroDescomponer) {
         ArrayList<Integer> numerosPrimos = new ArrayList<Integer>();
         int divisor = 2;
@@ -18,7 +19,8 @@ public class NumerosPrimos {
                     if (producto != 0) {
                         numerosPrimos.add(divisor);
                     }
-                } else {
+                } 
+                else {
                     numerosPrimos.add(divisor);
                 }
             }

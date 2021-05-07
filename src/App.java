@@ -1,6 +1,5 @@
 import java.util.*;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JOptionPane;
 
 public class App {
