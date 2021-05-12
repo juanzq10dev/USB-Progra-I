@@ -24,5 +24,15 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForThree(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(3); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(3);
+
+        assertEquals(expected, result);
+    }
     
 }
