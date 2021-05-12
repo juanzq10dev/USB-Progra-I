@@ -1,4 +1,4 @@
-
+package numPrimos;
 import java.util.*;
 
 public class NumerosPrimos {
