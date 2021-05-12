@@ -84,4 +84,14 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForNine(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(9); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(3);
+
+        assertEquals(expected, result);
+    }
 }
