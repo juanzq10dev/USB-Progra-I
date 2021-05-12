@@ -34,5 +34,15 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForFour(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(4); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(2);
+
+        assertEquals(expected, result);
+    }
     
 }
