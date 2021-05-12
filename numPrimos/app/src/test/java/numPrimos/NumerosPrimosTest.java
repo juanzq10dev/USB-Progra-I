@@ -75,4 +75,13 @@ public class NumerosPrimosTest {
         assertEquals(expected, result);
     }
     
+    @Test 
+    public void numPrimosTestForEight(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(8); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(2);
+
+        assertEquals(expected, result);
+    }
 }
