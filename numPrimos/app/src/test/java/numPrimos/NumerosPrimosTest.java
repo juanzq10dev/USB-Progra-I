@@ -3,6 +3,7 @@ package numPrimos;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NumerosPrimosTest {
 
@@ -51,6 +52,15 @@ public class NumerosPrimosTest {
         ArrayList<Integer> result = numPrimos.generate(5); 
         ArrayList<Integer> expected = new ArrayList<>();
         expected.add(5);
+
+        assertEquals(expected, result);
+    }
+
+    @Test 
+    public void numPrimosTestForSix(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(6); 
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2,3));
 
         assertEquals(expected, result);
     }
