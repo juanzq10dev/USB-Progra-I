@@ -44,5 +44,15 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForFive(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(5); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(5);
+
+        assertEquals(expected, result);
+    }
     
 }
