@@ -64,5 +64,15 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForSeven(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(7); 
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(7);
+
+        assertEquals(expected, result);
+    }
     
 }
