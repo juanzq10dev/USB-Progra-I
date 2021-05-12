@@ -94,4 +94,13 @@ public class NumerosPrimosTest {
 
         assertEquals(expected, result);
     }
+
+    @Test 
+    public void numPrimosTestForFourThousandSixHundredTwenty(){
+        NumerosPrimos numPrimos = new NumerosPrimos();
+        ArrayList<Integer> result = numPrimos.generate(4620); 
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2,3,5,7,11));
+
+        assertEquals(expected, result);
+    }
 }
