@@ -13,7 +13,7 @@ public class InvoiceTest {
         order.addProduct(garlicButter, 10);
         Invoice invoice = new Invoice(order);
 
-        double expected = 150; 
+        double expected = 150;
         double result = invoice.obtainProductTotalPrice(garlicButter);
         assertEquals(expected, result, 0.0);
 
@@ -24,7 +24,7 @@ public class InvoiceTest {
         assertEquals(expected, result, 0.0);
     }
 
-    @Test 
+    @Test
     public void testForPasta() {
         TypeProduct pasta = new TypeProduct("Pasta", 5, 50);
         Product noodles = new Product("Noodel", 5.50, pasta);
@@ -33,7 +33,7 @@ public class InvoiceTest {
         order.addProduct(noodles, 20);
         Invoice invoice = new Invoice(order);
 
-        double expected = 110; 
+        double expected = 110;
         double result = invoice.obtainProductTotalPrice(noodles);
         assertEquals(expected, result, 0.0);
 
@@ -44,7 +44,8 @@ public class InvoiceTest {
         expected = 55;
         result = invoice.getTotalPrice();
     }
-    @Test 
+
+    @Test
     public void testForGarlicButterAndNoodles() {
         TypeProduct pasta = new TypeProduct("Pasta", 5, 50);
         Product noodles = new Product("Noodel", 5.50, pasta);
@@ -57,14 +58,14 @@ public class InvoiceTest {
         order.addProduct(garlicButter, 10);
         Invoice invoice = new Invoice(order);
 
-        double expected = 150; 
+        double expected = 150;
         double result = invoice.obtainProductTotalPrice(garlicButter);
         assertEquals(expected, result, 0.0);
 
         result = invoice.obtainPriceWithDiscount(garlicButter);
         assertEquals(expected, result, 0.0);
 
-        expected = 110; 
+        expected = 110;
         result = invoice.obtainProductTotalPrice(noodles);
         assertEquals(expected, result, 0.0);
 

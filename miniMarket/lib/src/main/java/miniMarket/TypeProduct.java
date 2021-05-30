@@ -5,21 +5,21 @@ public class TypeProduct {
     private int amountForDiscount;
     private double discount;
 
-    public TypeProduct (String typeName, int amountForDiscount,double discount){
+    public TypeProduct(String typeName, int amountForDiscount, double discount) {
         this.typeName = typeName;
         this.discount = discount;
         this.amountForDiscount = amountForDiscount;
     }
 
-    public String getTypeName(){
+    public String getTypeName() {
         return typeName;
     }
 
-    public double getDiscount(){
+    public double getDiscount() {
         return discount;
     }
 
-    public int getAmountForDiscount(){
+    public int getAmountForDiscount() {
         return amountForDiscount;
     }
 }

@@ -22,5 +22,4 @@ public class Product {
     public TypeProduct getType() {
         return type;
     }
-
 }

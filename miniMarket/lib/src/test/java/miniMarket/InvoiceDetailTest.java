@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class InvoiceDetailTest {
-    @Test 
+    @Test
     public void testContainsShouldReturnTrue() {
         InvoiceDetail invoiceDetail = new InvoiceDetail("Milk", 10, 7, 70, 0, 70);
         assertTrue(invoiceDetail.contains("Milk"));

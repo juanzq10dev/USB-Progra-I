@@ -22,7 +22,7 @@ public class OrderTest {
     }
 
     @Test
-    public void testGetProductListShouldReturnProductList () {
+    public void testGetProductListShouldReturnProductList() {
         TypeProduct vegetables = new TypeProduct("Vegetables", 30, 5);
         Product tomato = new Product("Tomato", 1, vegetables);
         ArrayList<OrderDetail> expected = new ArrayList<OrderDetail>();
