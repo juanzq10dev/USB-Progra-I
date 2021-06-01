@@ -3,20 +3,19 @@ package miniMarket;
 import java.util.ArrayList;
 
 public class Order {
-    
-    ArrayList<Product> list; 
 
-    public Order(){
-        list = new ArrayList<Product>();
+    private ArrayList<OrderDetail> productList;
+
+    public Order() {
+        productList = new ArrayList<OrderDetail>();
     }
 
-    public ArrayList<Product> getList() {
-        return list;
+    public ArrayList<OrderDetail> getProductList() {
+        return productList;
     }
 
-    public void addToList(Product product, int quantity){
-        for (int index = 0; index < quantity; index++) {
-            list.add(product);
-        }
+    public void addProduct(Product product, int quantity) {
+        OrderDetail orderDetail = new OrderDetail(product, quantity);
+        productList.add(orderDetail);
     }
 }

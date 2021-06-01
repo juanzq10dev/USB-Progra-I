@@ -1,12 +1,11 @@
 package miniMarket;
 
-
 public class Product {
     private String name;
     private double price;
-    private String type;
+    private TypeProduct type;
 
-    public Product(String name, double price, String type) {
+    public Product(String name, double price, TypeProduct type) {
         this.name = name;
         this.price = price;
         this.type = type;
@@ -20,8 +19,7 @@ public class Product {
         return price;
     }
 
-    public String getType() {
+    public TypeProduct getType() {
         return type;
     }
-    
 }
