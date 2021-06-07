@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'excel'
-include('app', 'list', 'utilities')
+include('app', 'excel')
