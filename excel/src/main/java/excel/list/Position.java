@@ -1,28 +1,25 @@
 package excel.list;
 
 public class Position {
-    private char x;
-    private int y;
+    private char column;
+    private int row;
 
-    public Position(char x, int y) {
-        if (Character.isLetter(x)) {
-            this.x = Character.toUpperCase(x);
+    public Position(char column, int row) {
+        if (Character.isLetter(column)) {
+            this.column = Character.toUpperCase(column);
         } else {
-            throw new IllegalArgumentException("Character X Shold Be a Letter");
+            throw new IllegalArgumentException("Character column Shold Be a Letter");
         }
-        this.y = y;
+        this.row = row;
     }
 
-    public int obtainTransformedPositionX() {
-        return transformWordToNumber() - 1;
-    }
-
-    public int obtainTransformedPositionY() {
-        return y - 1;
-    }
-
-    private int transformWordToNumber() {
-        int value = x - 64;
+    public int obtainColumnValue() {
+        int value = x - 65;
         return value;
     }
+
+    public int obtainRowColumn() {
+        return y - 1;
+    }
 }
+

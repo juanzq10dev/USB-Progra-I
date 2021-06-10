@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Operator {
     protected Table table;
-    protected ArrayList<String> cellvalues;
+    protected ArrayList<String> cellValues;
 
     public Operator(Table table) {
         this.table = table;
@@ -14,7 +14,7 @@ public class Operator {
     public ArrayList<Double> transformList() {
         ArrayList<Double> numbers = new ArrayList<>();
 
-        for (String text : cellvalues) {
+        for (String text : cellValues) {
             double value = 0;
             try {
                 value = Double.parseDouble(text);
