@@ -2,14 +2,11 @@ package excel.list;
 
 import java.util.ArrayList;
 
-import javax.management.ValueExp;
-
 public class Table {
     private String[][] tabular;
 
     public Table() {
-        String[][] tabular = new String[26][50];
-        this.tabular = tabular;
+        this.tabular = new String[26][50];
     }
 
     public boolean write(String text, Position position) {
@@ -17,8 +14,8 @@ public class Table {
         boolean readPosition = position != null;
         boolean write = readText && readPosition;
 
-        int row = position.obtainTransformedPositionX();
-        int column = position.obtainTransformedPositionY();
+        int row = position.obtainColumnValue();
+        int column = position.obtainRowValue();
         try {
             tabular[row][column] = text;
         } catch (IndexOutOfBoundsException e) {
@@ -30,11 +27,11 @@ public class Table {
     public ArrayList<String> obtainRangeList(Position initialPosition, Position finalPosition) {
         ArrayList<String> textList = new ArrayList<String>();
 
-        int initialRow = initialPosition.obtainTransformedPositionX();
-        int finalRow = finalPosition.obtainTransformedPositionX();
+        int initialColumn = initialPosition.obtainColumnValue();
+        int finalColumn = finalPosition.obtainColumnValue();
 
-        int initialColumn = initialPosition.obtainTransformedPositionY();
-        int finalColumn = finalPosition.obtainTransformedPositionY();
+        int initialRow = initialPosition.obtainRowValue();
+        int finalRow = finalPosition.obtainRowValue();
 
         for (int row = initialRow; row <= finalRow; row++) {
             for (int column = initialColumn; column <= finalColumn; column++) {

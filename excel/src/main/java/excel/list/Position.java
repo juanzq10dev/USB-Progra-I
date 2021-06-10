@@ -14,12 +14,11 @@ public class Position {
     }
 
     public int obtainColumnValue() {
-        int value = x - 65;
-        return value;
+        return column - 65;
     }
 
-    public int obtainRowColumn() {
-        return y - 1;
+    public int obtainRowValue() {
+        return row - 1;
     }
 }
 
