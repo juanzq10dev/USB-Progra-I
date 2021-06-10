@@ -29,13 +29,6 @@ public class TableTest {
     }
 
     @Test
-    public void transformPositionToArrayShouldGiveAArrayOfPosition() {
-        Position B2 = new Position('B', 2);
-        Table table = new Table();
-        assertTrue(table.write("hola", B2));
-    }
-
-    @Test
     public void testObtainRangeListShouldReturnList () {
         Position A1 = new Position ('A', 1);
         Position A2 = new Position('A', 2);
