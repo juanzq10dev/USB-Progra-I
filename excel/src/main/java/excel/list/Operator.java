@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Operator {
     protected Table table;
-    protected ArrayList<String> characters;
+    protected ArrayList<String> cellvalues;
 
     public Operator(Table table) {
         this.table = table;
         this.characters = new ArrayList<String>();
     }
 
-    public ArrayList<Double> transformList(ArrayList<String> textList) {
+    public ArrayList<Double> transformList() {
         ArrayList<Double> numbers = new ArrayList<>();
 
-        for (String text : textList) {
+        for (String text : cellvalues) {
             double value = 0;
             try {
                 value = Double.parseDouble(text);
