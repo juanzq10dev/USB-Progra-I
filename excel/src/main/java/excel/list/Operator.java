@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 public class Operator {
     protected Table table;
+    protected ArrayList<Double> numbers;
+    protected double result;
 
     public Operator(Table table) {
         this.table = table;
+        this.numbers = new ArrayList<Double>();
+        this.result = 0;
     }
 
-    public ArrayList<Double> transformList(ArrayList<String> cellValues) {
-        ArrayList<Double> numbers = new ArrayList<>();
+    protected ArrayList<Double> transformList(Position initialPosition, Position finalPosition) {
+        ArrayList<String> cellValues = table.obtainRangeList(initialPosition, finalPosition);
 
         for (String text : cellValues) {
             double value = 0;
@@ -24,5 +28,10 @@ public class Operator {
             }
         }
         return numbers;
+    }
+
+    public double Calculate(Position initialPosition, Position finalPosition) {
+        transformList(initialPosition, finalPosition);
+        return result;
     }
 }

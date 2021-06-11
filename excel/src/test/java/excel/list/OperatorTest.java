@@ -10,12 +10,17 @@ import org.junit.jupiter.api.Test;
 public class OperatorTest {
 
     @Test
-    void testTransformList() {
+    void transformListShouldReturnOnlyNumbersInTheNewArrayList() {
+        Position a1 = new Position('a', 1);
+        Position a2 = new Position('a', 2);
+        Position a3 = new Position('a', 3);
         Table table = new Table(); 
-        ArrayList<String> list = new ArrayList<String>(Arrays.asList("fldsmdfr", "13", "15", "123patito"));
         Operator operator = new Operator(table);
-        ArrayList<Double> result = operator.transformList(list); 
-        ArrayList<Double> expected = new ArrayList<Double>(Arrays.asList(13.0, 15.0));
+        table.write("abc", a2);
+        table.write("13", a1);
+        table.write("47", a3);
+        ArrayList<Double> result = operator.transformList(a1, a3); 
+        ArrayList<Double> expected = new ArrayList<Double>(Arrays.asList(13.0, 47.0));
         assertEquals(expected, result);
     }
     
