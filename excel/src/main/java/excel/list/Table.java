@@ -6,7 +6,7 @@ public class Table {
     private String[][] tabular;
 
     public Table() {
-        this.tabular = new String[50][26];
+        this.tabular = new String[26][50];
     }
 
     public boolean write(String text, Position position) {
@@ -14,10 +14,10 @@ public class Table {
 
         int row = position.obtainRowValue();
         int column = position.obtainColumnValue();
-        boolean readPosition = row < 50 && column < 26;
+        boolean readPosition = column < 26 &&row < 50;
         boolean write = readText && readPosition;
         if(write == true) {
-            tabular[row][column] = text;
+            tabular[column][row] = text;
         }
         return write;
     }
