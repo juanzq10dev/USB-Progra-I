@@ -9,12 +9,15 @@ public class Average extends Operator{
 	@Override
 	public double Calculate(Position initialPosition, Position finalPosition) {
 	    double division = 0;
-
+	    
 	    transformList(initialPosition, finalPosition);
             for (double number : numbers) {
 	        result = result + number;
 	    }
 	    division = result / numbers.size();
-	    return division;
+	    result = division*Math.pow(10, 2);
+	    result = Math.round(result);
+	    result = result / Math.pow(10, 2);
+	    return result;
         }
 }

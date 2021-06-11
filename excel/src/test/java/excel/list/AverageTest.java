@@ -17,7 +17,7 @@ public class AverageTest {
         table.write("105", a1);
         table.write("55", b2);
         double result =  average.Calculate(a1,b2);
-        double expected = 57.6666666667;
+        double expected = 57.67;
         
         assertEquals(expected, result, 0.0);
     }
