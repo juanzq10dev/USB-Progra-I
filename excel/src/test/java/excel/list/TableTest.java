@@ -14,7 +14,7 @@ public class TableTest {
     public void writeShouldLetWriteATextWithAPosition() {
         Table table = new Table();
         String text = "50";
-        Position position  = new Position('X',10);
+        Position position  = new Position('X',30);
         boolean result = table.write(text, position);
         assertTrue(result);
     }
@@ -22,8 +22,17 @@ public class TableTest {
     @Test
     public void writeShouldNotLetWriteOutsideOfTheArray() {
         Table table = new Table();
+        String text = "50";
+        Position position  = new Position('X', 51);
+        boolean result = table.write(text, position);
+        assertFalse(result);
+    }
+
+    @Test
+    public void writeShouldFailIfTestIsNull() { 
+        Table table = new Table();
         String text = null;
-        Position position  = new Position('X',100);
+        Position position  = new Position('X', 13);
         boolean result = table.write(text, position);
         assertFalse(result);
     }
@@ -45,3 +54,4 @@ public class TableTest {
         assertEquals(expected, result);
     }
 }
+

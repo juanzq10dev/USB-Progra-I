@@ -11,15 +11,13 @@ public class Table {
 
     public boolean write(String text, Position position) {
         boolean readText = text != null;
-        boolean readPosition = position != null;
-        boolean write = readText && readPosition;
 
-        int row = position.obtainColumnValue();
-        int column = position.obtainRowValue();
-        try {
-            tabular[row][column] = text;
-        } catch (IndexOutOfBoundsException e) {
-            
+        int row = position.obtainRowValue();
+        int column = position.obtainColumnValue();
+        boolean readPosition = row < 50 && column < 26;
+        boolean write = readText && readPosition;
+        if(write == true) {
+            tabular[column][row] = text;
         }
         return write;
     }
@@ -35,7 +33,7 @@ public class Table {
 
         for (int row = initialRow; row <= finalRow; row++) {
             for (int column = initialColumn; column <= finalColumn; column++) {
-                String value = tabular[row][column];
+                String value = tabular[column][row];
                 if (value != null) {
                     textList.add(value);
                 }
