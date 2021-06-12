@@ -14,7 +14,7 @@ public class Table {
 
         int row = position.obtainRowValue();
         int column = position.obtainColumnValue();
-        boolean readPosition = row < 50 && column < 26;
+        boolean readPosition = column < 26 &&row < 50;
         boolean write = readText && readPosition;
         if(write == true) {
             tabular[column][row] = text;

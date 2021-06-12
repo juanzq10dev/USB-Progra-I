@@ -21,4 +21,3 @@ public class Position {
         return row - 1;
     }
 }
-
