@@ -2,9 +2,6 @@ package bank;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-import java.time.format.DateTimeParseException;
-
 public class AccountOperationTest {
     @Test 
     public void AccountOperationShouldNotBeCreatedIfDateFormatIsIncorrect(){

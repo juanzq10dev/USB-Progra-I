@@ -3,15 +3,14 @@ package bank;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.zip.DataFormatException;
 
 public class AccountOperation {
     double money;
-    String operationName; 
-    LocalDateTime date; 
-    
-    public AccountOperation (double money, String operationName, String date) {
-        this.money = money; 
+    String operationName;
+    LocalDateTime date;
+
+    public AccountOperation(double money, String operationName, String date) {
+        this.money = money;
         this.operationName = operationName;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         try {
@@ -27,5 +26,5 @@ public class AccountOperation {
 
     public LocalDateTime getDate() {
         return date;
-    } 
+    }
 }
