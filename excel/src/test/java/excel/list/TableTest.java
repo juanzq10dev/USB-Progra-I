@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.text.spi.DecimalFormatSymbolsProvider;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -52,6 +53,24 @@ public class TableTest {
         ArrayList<String> expected = new ArrayList<String>(Arrays.asList("hola Diego", "hola Ariel", "hola Valeria")); 
 
         assertEquals(expected, result);
+    }
+
+    @Test 
+    public void testWriteShouldBeAbleToReceiveOperationMethods() {
+        Position a1 = new Position('a', 1);
+        Position a2 = new Position('a', 2);
+        Position b1 = new Position('b', 1);
+        Position b2 = new Position('b', 2);
+        Position c3 = new Position('c', 3);
+        Table table = new Table(); 
+        Operator sum = new Sum(table);
+        table.write("abc", a2);
+        table.write("13", b1);
+        table.write("105", a1);
+        table.write("55", b2);
+
+        boolean result = table.write(sum.Calculate(a1, b2), c3);
+        assertTrue(result);
     }
 }
 
