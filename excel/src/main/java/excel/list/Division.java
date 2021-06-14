@@ -5,7 +5,7 @@ public class Division extends Operator{
 	public Division(Table table) {
 		super(table);
 		//TODO Auto-generated constructor stub
-	}
+	} 
 
 	public double Calculate(Position initialPosition, Position finalPosition) {
 		double division = 0;
