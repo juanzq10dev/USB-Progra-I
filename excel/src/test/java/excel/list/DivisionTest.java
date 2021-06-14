@@ -36,9 +36,9 @@ public class DivisionTest {
         Table table = new Table(); 
         Operator division = new Division(table);
         table.write("-23", a1);
-        table.write("3", h1);
+        table.write("5", h1);
         double result =  division.Calculate(a1,h1);
-        double expected = -7.67;
+        double expected = -4.6;
         
         assertEquals(expected, result, 0.0);
     }
@@ -49,9 +49,9 @@ public class DivisionTest {
         Table table = new Table(); 
         Operator division = new Division(table);
         table.write("729", a1);
-        table.write("81", h1);
+        table.write("9", h1);
         double result =  division.Calculate(a1,h1);
-        double expected = 9;
+        double expected = 81;
         
         assertEquals(expected, result, 0.0);
     }

@@ -24,7 +24,6 @@ public class ProductTest {
     @Test
     void testCalculate2() {
         Position a1 = new Position('a', 1);
-        Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);
         Table table = new Table(); 
@@ -40,7 +39,6 @@ public class ProductTest {
     @Test
     void testCalculate3() {
         Position a1 = new Position('a', 1);
-        Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);
         Table table = new Table(); 
@@ -56,7 +54,6 @@ public class ProductTest {
     @Test
     void testCalculate4() {
         Position a1 = new Position('a', 1);
-        Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);
         Table table = new Table(); 
