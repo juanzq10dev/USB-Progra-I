@@ -21,4 +21,52 @@ public class ProductTest {
         
         assertEquals(expected, result, 0.0);
     }
+    @Test
+    void testCalculate2() {
+        Position a1 = new Position('a', 1);
+        Position a2 = new Position('a', 2);
+        Position b1 = new Position('b', 1);
+        Position b2 = new Position('b', 2);
+        Table table = new Table(); 
+        Operator product = new Product(table);
+        table.write("13", b1);
+        table.write("10", a1);
+        table.write("-35", b2);
+        double result =  product.Calculate(a1,b2);
+        double expected = -4550;
+        
+        assertEquals(expected, result, 0.0);
+    }
+    @Test
+    void testCalculate3() {
+        Position a1 = new Position('a', 1);
+        Position a2 = new Position('a', 2);
+        Position b1 = new Position('b', 1);
+        Position b2 = new Position('b', 2);
+        Table table = new Table(); 
+        Operator product = new Product(table);
+        table.write("47", b1);
+        table.write("23", a1);
+        table.write("5", b2);
+        double result =  product.Calculate(a1,b2);
+        double expected = 5405;
+        
+        assertEquals(expected, result, 0.0);
+    }
+    @Test
+    void testCalculate4() {
+        Position a1 = new Position('a', 1);
+        Position a2 = new Position('a', 2);
+        Position b1 = new Position('b', 1);
+        Position b2 = new Position('b', 2);
+        Table table = new Table(); 
+        Operator product = new Product(table);
+        table.write("-1", b1);
+        table.write("32", a1);
+        table.write("0", b2);
+        double result =  product.Calculate(a1,b2);
+        double expected = 0;
+        
+        assertEquals(expected, result, 0.0);
+    }
 }
