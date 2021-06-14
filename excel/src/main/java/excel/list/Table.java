@@ -58,10 +58,4 @@ public class Table {
         return textList;
     }
 
-    private boolean verifyPosition(Position position) {
-        int row = position.obtainRowValue();
-        int column = position.obtainColumnValue();
-        boolean readPosition = column < 26 &&row < 50;
-        return readPosition;
-    }
 }
