@@ -36,7 +36,7 @@ public class ProductTest {
         double expected = -4550;
         
         assertEquals(expected, result, 0.0);
-    }
+    } 
     @Test
     void testCalculate3() {
         Position a1 = new Position('a', 1);
