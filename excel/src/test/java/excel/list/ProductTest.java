@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ProductTest {
     @Test
-    void testCalculate() {
+    void testCalculate() { 
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);

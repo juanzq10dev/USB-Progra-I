@@ -17,7 +17,7 @@ public class Division extends Operator{
 		} else { 
 			throw new IllegalArgumentException("dividend cannot be 0");
 		}
-		division = result;
+		division = result; 
 		double roundedResult = (double) (Math.round(division * 100)) / 100;
 		return roundedResult;
 	}
