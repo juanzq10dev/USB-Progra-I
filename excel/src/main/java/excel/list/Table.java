@@ -41,4 +41,8 @@ public class Table {
         }
         return textList;
     }
+
+    public void Calculate() {
+        
+    }
 }

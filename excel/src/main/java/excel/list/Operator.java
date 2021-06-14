@@ -7,7 +7,7 @@ public class Operator {
     protected ArrayList<Double> numbers;
     protected double result;
 
-    public Operator(Table table) {
+    protected Operator(Table table) {
         this.table = table;
         this.numbers = new ArrayList<Double>();
         this.result = 0;
