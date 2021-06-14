@@ -14,10 +14,26 @@ public class Table {
 
         int row = position.obtainRowValue();
         int column = position.obtainColumnValue();
-        boolean readPosition = row < 50 && column < 26;
+        boolean readPosition = column < 26 && row < 50;
         boolean write = readText && readPosition;
         if(write == true) {
             tabular[column][row] = text;
+        }
+        return write;
+    }
+
+
+    public boolean write(Double value, Position position) {
+        boolean readText = value != null;
+
+        int row = position.obtainRowValue();
+        int column = position.obtainColumnValue();
+        boolean readPosition = column < 26 &&row < 50;
+        boolean write = readText && readPosition;
+
+        if(write == true) {
+            String result = value + "";
+            tabular[column][row] = result;
         }
         return write;
     }
@@ -40,5 +56,12 @@ public class Table {
             }
         }
         return textList;
+    }
+
+    private boolean verifyPosition(Position position) {
+        int row = position.obtainRowValue();
+        int column = position.obtainColumnValue();
+        boolean readPosition = column < 26 &&row < 50;
+        return readPosition;
     }
 }

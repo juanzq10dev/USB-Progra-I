@@ -20,11 +20,9 @@ public class Operator {
             double value = 0;
             try {
                 value = Double.parseDouble(text);
-            } catch (NumberFormatException e) {
-
-            }
-            if (value != 0) {
                 numbers.add(value);
+            } catch (NumberFormatException e) {
+                
             }
         }
         return numbers;
