@@ -7,7 +7,7 @@ public class Sum extends Operator {
         //TODO Auto-generated constructor stub
     }
     
-    @Override 
+    @Override  //PARA SOBREESCRIBIR EL METODO
     public double Calculate(Position initialPosition, Position finalPosition) {
         transformList(initialPosition, finalPosition);
         for (double number : numbers) {
