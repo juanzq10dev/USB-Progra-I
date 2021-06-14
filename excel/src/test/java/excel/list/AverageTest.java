@@ -23,7 +23,7 @@ public class AverageTest {
     }
 
     @Test
-    void testCalculateWhenResultHasNoDecimals() {
+    void testCalculateWhenResultHasNotDecimals() {
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
