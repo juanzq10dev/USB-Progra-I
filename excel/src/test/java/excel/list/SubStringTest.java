@@ -8,12 +8,14 @@ public class SubStringTest {
     @Test
     public void subStringShouldGiveAStringFromAIndex() {
         Table table = new Table();
-        SubString subString = new SubString(table);
+        SubString substring = new SubString(table);
         String text = "Hello World";
         int index = 4;
+
         Position A5 = new Position('A', 5);
         table.write(text, A5);
-        String result = subString.subString(text, 4, A5);
+        
+        String result = substring.substring(text, index, A5);
         String expected = "o World";
         assertEquals(expected, result);
     }

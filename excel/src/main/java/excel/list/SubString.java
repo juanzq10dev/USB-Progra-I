@@ -5,7 +5,13 @@ public class SubString {
     public SubString(Table table) {
         this.table = table;
     }
-    public String subString(String text, int index, Position position) {
-        return text.substring(index);
+    public String substring(String text, int index, Position position) {
+        boolean write = table.write(text, position);
+        if(write && index < text.length()) {
+            return text.substring(index);
+        } else {
+            throw new IllegalArgumentException("Is out of the index");
+        }
+
     }
 }
