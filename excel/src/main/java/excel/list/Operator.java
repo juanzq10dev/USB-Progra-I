@@ -7,7 +7,7 @@ public class Operator {
     protected ArrayList<Double> numbers;
     protected double result;
 
-    public Operator(Table table) {
+    protected Operator(Table table) {
         this.table = table;
         this.numbers = new ArrayList<Double>();
         this.result = 0;
@@ -20,11 +20,9 @@ public class Operator {
             double value = 0;
             try {
                 value = Double.parseDouble(text);
-            } catch (NumberFormatException e) {
-
-            }
-            if (value != 0) {
                 numbers.add(value);
+            } catch (NumberFormatException e) {
+                
             }
         }
         return numbers;
