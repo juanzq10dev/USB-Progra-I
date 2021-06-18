@@ -4,11 +4,7 @@ import java.util.ArrayList;
 
 public class Table {
     private String[][] tabular;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> f2336fa130f3836f7ab712c4e15bb162daa90a4a
     public Table() {
         this.tabular = new String[26][50];
     }
