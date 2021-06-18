@@ -31,6 +31,6 @@ public class SubStringTest {
         Position A5 = new Position('A', 5);
         table.write(text, A5);
 
-        assertThrows(IllegalArgumentException.class, () -> substring.substring(A5, index));
+        assertThrows(IndexOutOfBoundsException.class, () -> substring.substring(A5, index));
     }
 }

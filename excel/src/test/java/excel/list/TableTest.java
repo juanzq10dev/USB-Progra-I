@@ -71,5 +71,15 @@ public class TableTest {
         boolean result = table.write(sum.Calculate(a1, b2), c3);
         assertTrue(result);
     }
+
+    @Test void testObtainPositionTextShouldReturnText() {
+        Position A1 = new Position('A', 1);
+        Table table = new Table();
+        table.write("Hello World", A1);
+        
+        String result = table.obtainText(A1);
+        String expected = "Hello World";
+        assertEquals(expected, result);
+    }
 }
 

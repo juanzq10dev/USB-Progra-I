@@ -3,7 +3,6 @@ package excel.list;
 import java.util.ArrayList;
 
 public class Table {
-    public String text;
     private String[][] tabular;
 
     public Table() {
@@ -11,7 +10,6 @@ public class Table {
     }
 
     public boolean write(String text, Position position) {
-        this.text = text;
         boolean readText = text != null;
 
         int row = position.obtainRowValue();
@@ -58,6 +56,12 @@ public class Table {
             }
         }
         return textList;
+    }
+
+    public String obtainText(Position position) {
+        int column = position.obtainColumnValue();
+        int row = position.obtainRowValue();
+        return tabular[column][row];
     }
 
 }

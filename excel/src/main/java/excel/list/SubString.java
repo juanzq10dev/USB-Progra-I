@@ -7,10 +7,11 @@ public class SubString {
         this.table = table;
     }
     public String substring(Position position, int index) {
-        if(index < table.text.length()) {
-            return table.text.substring(index);
+        String text = table.obtainText(position);
+        if(index < text.length()) {
+            return text.substring(index);
         } else {
-            throw new IllegalArgumentException("Is out of the index");
+            throw new IndexOutOfBoundsException("index is not valid");
         }
 
     }
