@@ -67,3 +67,4 @@ public class ProductTest {
         assertEquals(expected, result, 0.0);
     }
 }
+

@@ -78,3 +78,4 @@ public class SumTest {
         assertEquals(expected, result, 0.0);
     }
 }
+

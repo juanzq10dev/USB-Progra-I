@@ -58,4 +58,10 @@ public class Table {
         return textList;
     }
 
+    public String obtainText(Position position) {
+        int column = position.obtainColumnValue();
+        int row = position.obtainRowValue();
+        return tabular[column][row];
+    }
+
 }

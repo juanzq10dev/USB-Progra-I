@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.text.spi.DecimalFormatSymbolsProvider;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -71,6 +70,16 @@ public class TableTest {
 
         boolean result = table.write(sum.Calculate(a1, b2), c3);
         assertTrue(result);
+    }
+
+    @Test void testObtainPositionTextShouldReturnText() {
+        Position A1 = new Position('A', 1);
+        Table table = new Table();
+        table.write("Hello World", A1);
+        
+        String result = table.obtainText(A1);
+        String expected = "Hello World";
+        assertEquals(expected, result);
     }
 }
 

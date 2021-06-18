@@ -1,5 +1,4 @@
 package excel.list;
-
 public class Division extends Operator {
 
     public Division(Table table) {
