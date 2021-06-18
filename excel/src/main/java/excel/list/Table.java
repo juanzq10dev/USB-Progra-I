@@ -6,7 +6,6 @@ public class Table {
     public String text;
     private String[][] tabular;
     
-
     public Table() {
         this.tabular = new String[26][50];
     }
