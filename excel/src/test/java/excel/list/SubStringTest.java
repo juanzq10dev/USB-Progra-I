@@ -16,7 +16,7 @@ public class SubStringTest {
         Position A5 = new Position('A', 5);
         table.write(text, A5);
         
-        String result = substring.substring(text, index, A5);
+        String result = substring.substring(A5, index);
         String expected = "o World";
         assertEquals(expected, result);
     }
@@ -30,6 +30,7 @@ public class SubStringTest {
 
         Position A5 = new Position('A', 5);
         table.write(text, A5);
-        assertThrows(IllegalArgumentException.class, () -> substring.substring(text, index, A5));
+
+        assertThrows(IllegalArgumentException.class, () -> substring.substring(A5, index));
     }
 }

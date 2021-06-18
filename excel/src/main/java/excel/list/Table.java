@@ -3,13 +3,16 @@ package excel.list;
 import java.util.ArrayList;
 
 public class Table {
+    public String text;
     private String[][] tabular;
+    
 
     public Table() {
         this.tabular = new String[26][50];
     }
 
     public boolean write(String text, Position position) {
+        this.text = text;
         boolean readText = text != null;
 
         int row = position.obtainRowValue();
