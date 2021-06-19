@@ -1,11 +1,11 @@
 package excel.list;
 
-public class SubString {
-    private Table table;
+public class SubString extends Operator{
     
     public SubString(Table table) {
-        this.table = table;
+        super(table);
     }
+
     public String substring(Position position, int index) {
         String text = table.obtainText(position);
         if(index < text.length()) {
