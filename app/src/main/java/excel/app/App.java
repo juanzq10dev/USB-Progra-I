@@ -3,13 +3,25 @@
  */
 package excel.app;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
+public class App extends Application {
 
-import static excel.app.MessageUtils.getMessage;
+    @Override
+    public void start(Stage stage) {
+        String javaVersion = System.getProperty("java.version");
+        String javafxVersion = System.getProperty("javafx.version");
+        Label l = new Label(javaVersion + " " + javafxVersion);
+        Scene scene = new Scene(new StackPane(l), 640, 480);
+        stage.setScene(scene);
+        stage.show();
+    }
 
-
-public class App {
     public static void main(String[] args) {
-        System.out.println(getMessage());
+        launch();
     }
 }
