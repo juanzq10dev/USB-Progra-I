@@ -13,34 +13,34 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-            TableView<String> table = new TableView<>();
+        TableView<String> table = new TableView<>();
 
-            TableColumn<String, String> voidColumn = new TableColumn<>("");
-            voidColumn.setReorderable(false);
-            table.getColumns().add(voidColumn);
+        TableColumn<String, String> voidColumn = new TableColumn<>("");
+        voidColumn.setReorderable(false);
+        table.getColumns().add(voidColumn);
+                    
+        for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
+            TableColumn<String, String> column = new TableColumn<>(alphabet + "");
+            column.setCellValueFactory(new PropertyValueFactory<>(""));
+            column.setReorderable(false);
+            table.getColumns().add(column);
+        }
 
-            for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
-                TableColumn<String, String> column = new TableColumn<>(alphabet + "");
-                column.setCellValueFactory(new PropertyValueFactory<>(""));
-                column.setReorderable(false);
-                table.getColumns().add(column);
-            }
+        for (int i = 0; i <= 50; i++) {
+            table.getItems().add("");
+        }
 
-            for (int i = 0; i <= 50; i++) {
-                table.getItems().add("");
-            }
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-            table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        TextField box = new TextField();
+        BorderPane root = new BorderPane();
+        root.setCenter(table);
+        root.setTop(box);
 
-            TextField box = new TextField();
-            BorderPane root = new BorderPane();
-            root.setCenter(table);
-            root.setTop(box);
-
-            Scene scene = new Scene(root, Double.MAX_VALUE, 1000);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("X-cel Team project");
-            primaryStage.show();
+        Scene scene = new Scene(root, Double.MAX_VALUE, 1000);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("X-cel Team project");
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
