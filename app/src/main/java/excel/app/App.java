@@ -24,6 +24,7 @@ public class App extends Application {
         Table tabular = new Table();
         TableView<Position> table = new TableView<>();
         table.setEditable(true);
+
         TableColumn<Position, Integer> voidColumn = new TableColumn<>("");
         voidColumn.setCellValueFactory(
                 data -> new SimpleIntegerProperty(data.getValue().obtainRowValue() + 1).asObject());
@@ -45,6 +46,7 @@ public class App extends Application {
                     tabular.write(event.getNewValue(), position);
                 }
             });
+            
             column.setMinWidth(90);
             table.getColumns().add(column);
             column.setReorderable(false);
