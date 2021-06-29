@@ -1,6 +1,7 @@
 package excel.app;
 
-import javax.print.event.PrintJobAdapter;
+import java.io.BufferedReader;
+import java.io.File;
 
 import excel.list.Position;
 import excel.list.Table;
@@ -8,12 +9,21 @@ import javafx.application.Application;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -31,9 +41,45 @@ public class App extends Application {
 
         createColumns(tableView, table);
 
-        Scene scene = new Scene(new BorderPane(tableView), Double.MAX_VALUE, 1000);
+        GridPane root2 = createToolBar();
+
+        BorderPane root = new BorderPane();
+        root.setTop(root2);
+        root.setCenter(tableView);
+        Scene scene = new Scene(root, Double.MAX_VALUE, 1000);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public GridPane createToolBar() {
+        GridPane gridPane = new GridPane();
+        HBox hBox = new HBox();
+        ToolBar toolBar = new ToolBar();
+        Button fileButton = new Button("File");
+        Button editButton = new Button("Edit");
+        Button viewButton = new Button("View");
+        Button insertButton = new Button("Insert");
+        Button formatButton = new Button("Format");
+        Label label = new Label("f(x)");
+        TextField textField = new TextField();
+        textField.setPrefWidth(1800);
+        hBox.getChildren().addAll(label, textField);
+        toolBar.getItems().addAll(fileButton, editButton, viewButton, insertButton, formatButton);
+
+        ColumnConstraints column1 = new ColumnConstraints();
+        ColumnConstraints column2 = new ColumnConstraints();
+
+        gridPane.getColumnConstraints().addAll(column1, column2);
+        column1.setPrefWidth(100);
+        column2.setPrefWidth(2000);
+
+        gridPane.add(toolBar, 1, 0);
+
+        gridPane.add(hBox, 1, 1);
+
+        
+        
+        return gridPane;
     }
 
     public void createVoidColumn(TableView<Position> tableView) {
@@ -64,7 +110,7 @@ public class App extends Application {
                     int row = positionTable.getRow() + 1;
                     int columnValue = positionTable.getColumn() + 64;
                     char column = (char) columnValue;
-                    
+
                     Position position = new Position(column, row);
                     table.write(event.getNewValue(), position);
                     
