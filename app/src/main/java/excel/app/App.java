@@ -1,5 +1,7 @@
 package excel.app;
 
+import javax.print.event.PrintJobAdapter;
+
 import excel.list.Position;
 import excel.list.Table;
 import javafx.application.Application;
@@ -21,15 +23,36 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Table tabular = new Table();
-        TableView<Position> table = new TableView<>();
-        table.setEditable(true);
+        Table table = new Table();
+        TableView<Position> tableView = new TableView<>();
+        tableView.setEditable(true);
 
+        createVoidColumn(tableView);
+
+        createColumns(tableView, table);
+
+        Scene scene = new Scene(new BorderPane(tableView), Double.MAX_VALUE, 1000);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void createVoidColumn(TableView<Position> tableView) {
         TableColumn<Position, Integer> voidColumn = new TableColumn<>("");
         voidColumn.setCellValueFactory(
                 data -> new SimpleIntegerProperty(data.getValue().obtainRowValue() + 1).asObject());
-        table.getColumns().add(voidColumn);
+        tableView.getColumns().add(voidColumn);
+        fillColumn(tableView);
 
+    }
+    
+    private void fillColumn(TableView<Position> tableView) {
+        for (int i = 1; i <= 50; i++) {
+            Position position = new Position('B', i);
+            tableView.getItems().add(position);
+        }
+
+    }
+    public void createColumns(TableView<Position> tableView, Table table) {
         for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
             TableColumn<Position, String> column = new TableColumn<>(alphabet + "");
             column.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -41,24 +64,16 @@ public class App extends Application {
                     int row = positionTable.getRow() + 1;
                     int columnValue = positionTable.getColumn() + 64;
                     char column = (char) columnValue;
-
+                    
                     Position position = new Position(column, row);
-                    tabular.write(event.getNewValue(), position);
+                    table.write(event.getNewValue(), position);
+                    
                 }
             });
-            
             column.setMinWidth(90);
-            table.getColumns().add(column);
+            tableView.getColumns().add(column);
             column.setReorderable(false);
         }
-
-        for (int i = 1; i <= 50; i++) {
-            Position position = new Position('B', i);
-            table.getItems().add(position);
-        }
-
-        Scene scene = new Scene(new BorderPane(table), Double.MAX_VALUE, 1000);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
+                  
 }

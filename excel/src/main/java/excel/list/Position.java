@@ -13,6 +13,17 @@ public class Position {
         this.row = row;
     }
 
+    public Position (String position){
+        char column = position.charAt(0);
+        this.column = Character.toUpperCase(column);
+        
+        int row = 0; 
+        for (int index = 1; index < position.length(); index++){
+            row += index;
+        } 
+        this.row = row; 
+    }
+
     public int obtainColumnValue() {
         return column - 65;
     }

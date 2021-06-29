@@ -1,6 +1,5 @@
 package excel.list;
 
-import java.io.InvalidObjectException;
 
 public class Concat extends Operator{
     
