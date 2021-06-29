@@ -4,7 +4,6 @@ public class Product extends Operator {
 
 	public Product(Table table) {
 		super(table);
-		// TODO Auto-generated constructor stub
 	}
 
 	public double Calculate(Position initialPosition, Position finalPosition) {

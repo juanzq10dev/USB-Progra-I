@@ -64,8 +64,7 @@ public class App extends Application {
                     int row = positionTable.getRow() + 1;
                     int columnValue = positionTable.getColumn() + 64;
                     char column = (char) columnValue;
-
-                    System.out.println("1");
+                    
                     Position position = new Position(column, row);
                     table.write(event.getNewValue(), position);
                     

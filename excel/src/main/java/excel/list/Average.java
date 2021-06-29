@@ -4,7 +4,6 @@ public class Average extends Operator {
 
     public Average(Table table) {
         super(table);
-        // TODO Auto-generated constructor stub
     }
 
     @Override

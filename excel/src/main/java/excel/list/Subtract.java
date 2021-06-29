@@ -4,9 +4,9 @@ public class Subtract extends Operator{
 
 	public Subtract(Table table) {
 		super(table);
-		//TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public double Calculate(Position initialPosition, Position finalPosition) {
 		transformList(initialPosition, finalPosition);
 		result = numbers.get(0);
