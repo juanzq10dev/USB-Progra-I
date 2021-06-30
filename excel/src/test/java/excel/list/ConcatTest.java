@@ -19,6 +19,7 @@ public class ConcatTest {
 
         String result = concatOperator.concat(list);
         String expected = "Hola Mundo";
+        
         assertEquals(expected, result);
 
         Position C15 = new Position('C', 15);
@@ -26,6 +27,7 @@ public class ConcatTest {
         Object[] list2 = {A12, " ", B10, C15};
         expected = "Hola Mundo20";
         result = concatOperator.concat(list2);
+
         assertEquals(expected, result);
     }
 

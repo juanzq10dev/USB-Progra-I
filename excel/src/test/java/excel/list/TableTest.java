@@ -41,7 +41,7 @@ public class TableTest {
     public void testObtainRangeListShouldReturnList () {
         Position A1 = new Position ('A', 1);
         Position A2 = new Position('A', 2);
-        Position B2 = new Position ('B', 2);
+        Position B2 = new Position ("B2");
 
         Table table = new Table();
         table.write("hola Ariel", A2); 

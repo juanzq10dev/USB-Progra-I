@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class AverageTest {
+
     @Test
-    void testCalculateWhenResultHasDecimals() {
+    public void testCalculateWhenResultHasDecimals() {
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
@@ -23,7 +24,7 @@ public class AverageTest {
     }
 
     @Test
-    void testCalculateWhenResultHasNotDecimals() {
+    public void testAverageWithNegativeNumbers() {
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
@@ -32,16 +33,16 @@ public class AverageTest {
         Operator average = new Average(table);
         table.write("abc", a2);
         table.write("12", b1);
-        table.write("9", a1);
+        table.write("-9", a1);
         table.write("27", b2);
         double result =  average.Calculate(a1,b2);
-        double expected = 16;
+        double expected = 10;
         
         assertEquals(expected, result, 0.0);
     }
 
     @Test
-    void testCalculateWhithVerticalRange() {
+    public void testCalculateWhithVerticalRange() {
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position a3 = new Position('a', 3);
@@ -59,7 +60,7 @@ public class AverageTest {
     }
 
     @Test
-    void testCalculateWhitHorizontalRange() {
+    public void testCalculateWhitHorizontalRange() {
         Position a1 = new Position('a', 1);
         Position c1 = new Position('c', 1);
         Position b1 = new Position('b', 1);

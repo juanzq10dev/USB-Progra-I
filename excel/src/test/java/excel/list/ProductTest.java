@@ -1,11 +1,12 @@
 package excel.list;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ProductTest {
     @Test
-    void testCalculate() { 
+    public void testCalculate() { 
         Position a1 = new Position('a', 1);
         Position a2 = new Position('a', 2);
         Position b1 = new Position('b', 1);
@@ -21,8 +22,9 @@ public class ProductTest {
         
         assertEquals(expected, result, 0.0);
     }
+
     @Test
-    void testCalculate2() {
+   public void testCalculate2() {
         Position a1 = new Position('a', 1);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);
@@ -36,8 +38,9 @@ public class ProductTest {
         
         assertEquals(expected, result, 0.0);
     }
+
     @Test
-    void testCalculate3() {
+    public void testCalculate3() {
         Position a1 = new Position('a', 1);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);
@@ -51,8 +54,9 @@ public class ProductTest {
         
         assertEquals(expected, result, 0.0);
     }
+    
     @Test
-    void testCalculate4() {
+    public void testCalculate4() {
         Position a1 = new Position('a', 1);
         Position b1 = new Position('b', 1);
         Position b2 = new Position('b', 2);

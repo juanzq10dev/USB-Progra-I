@@ -10,6 +10,8 @@ public class PositionTest {
         assertThrows(IllegalArgumentException.class, () -> new Position('?', 50));
         assertThrows(IllegalArgumentException.class, () -> new Position('#', 50));
         assertThrows(IllegalArgumentException.class, () -> new Position('1', 50));
+        assertThrows(IllegalArgumentException.class, () -> new Position("110"));
+        assertThrows(IllegalArgumentException.class, () -> new Position("#10"));
     }
 
     @Test

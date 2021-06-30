@@ -8,18 +8,17 @@ public class Division extends Operator {
     @Override
 
     public double Calculate(Position initialPosition, Position finalPosition) {
-        double division = 0;
-        double result = 0;
-        transformList(initialPosition, finalPosition);
-        double divisor = numbers.get(0);
-        double dividend = numbers.get(numbers.size() - 1);
+        double division;
+        double divisor = Double.parseDouble(table.obtainText(initialPosition));
+        double dividend = Double.parseDouble(table.obtainText(finalPosition));
+
         if (dividend != 0) {
             division = divisor / dividend;
         } else {
             throw new IllegalArgumentException("dividend cannot be 0");
         }
-        result = division;
-        double roundedResult = (double) (Math.round(result * 100)) / 100;
+
+        double roundedResult = (double) (Math.round(division * 100)) / 100;
         return roundedResult;
     }
 }

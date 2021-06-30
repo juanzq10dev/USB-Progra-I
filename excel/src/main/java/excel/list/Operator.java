@@ -17,7 +17,7 @@ public class Operator {
         ArrayList<String> cellValues = table.obtainRangeList(initialPosition, finalPosition);
 
         for (String text : cellValues) {
-            double value = 0;
+            double value;
             try {
                 value = Double.parseDouble(text);
                 numbers.add(value);

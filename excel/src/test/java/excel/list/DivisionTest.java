@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class DivisionTest {
     @Test
-    void testCalculate() {
+    public void testDivisionShouldDivide() {
         Position a1 = new Position('a', 1);
         Position h1 = new Position('h', 1);
         Table table = new Table(); 
@@ -20,7 +20,7 @@ public class DivisionTest {
     }
 
     @Test
-    void testCalculateShouldThrowErrorIfDividendIs0() {
+    public void testCalculateShouldThrowErrorIfDividendIs0() {
         Position a1 = new Position('a', 1);
         Position h1 = new Position('h', 1);
         Table table = new Table(); 
@@ -30,7 +30,7 @@ public class DivisionTest {
         assertThrows(IllegalArgumentException.class, () -> division.Calculate(a1,h1));
     }
     @Test
-    void testCalculate2() {
+    public void testDivideWithNegativeNumbers() {
         Position a1 = new Position('a', 1);
         Position h1 = new Position('h', 1);
         Table table = new Table(); 
@@ -43,7 +43,7 @@ public class DivisionTest {
         assertEquals(expected, result, 0.0);
     }
     @Test
-    void testCalculate3() {
+    public void secondTestDivideShouldDivide() {
         Position a1 = new Position('a', 1);
         Position h1 = new Position('h', 1);
         Table table = new Table(); 
