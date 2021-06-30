@@ -8,6 +8,7 @@ import excel.list.Table;
 import javafx.application.Application;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -39,21 +40,24 @@ public class App extends Application {
 
         createVoidColumn(tableView);
 
-        createColumns(tableView, table);
+        TextField positionField = new TextField();
+        positionField.setPrefWidth(250);
+        createColumns(tableView, table, positionField);
 
-        GridPane root2 = createToolBar();
+        HBox hBox = new HBox();
+        GridPane gridPane = createToolBar(hBox, positionField);
 
         BorderPane root = new BorderPane();
-        root.setTop(root2);
+        root.setTop(gridPane);
         root.setCenter(tableView);
         Scene scene = new Scene(root, Double.MAX_VALUE, 1000);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    public GridPane createToolBar() {
+    public GridPane createToolBar(HBox hBox, TextField positionField) {
         GridPane gridPane = new GridPane();
-        HBox hBox = new HBox();
+        hBox = new HBox();
         ToolBar toolBar = new ToolBar();
         Button fileButton = new Button("File");
         Button editButton = new Button("Edit");
@@ -62,8 +66,10 @@ public class App extends Application {
         Button formatButton = new Button("Format");
         Label label = new Label("f(x)");
         TextField textField = new TextField();
-        textField.setPrefWidth(1800);
-        hBox.getChildren().addAll(label, textField);
+        Label positionLabel = new Label("Position:");
+
+        textField.setPrefWidth(1500);
+        hBox.getChildren().addAll(label, textField, positionLabel ,positionField);
         toolBar.getItems().addAll(fileButton, editButton, viewButton, insertButton, formatButton);
 
         ColumnConstraints column1 = new ColumnConstraints();
@@ -76,9 +82,6 @@ public class App extends Application {
         gridPane.add(toolBar, 1, 0);
 
         gridPane.add(hBox, 1, 1);
-
-        
-        
         return gridPane;
     }
 
@@ -90,7 +93,7 @@ public class App extends Application {
         fillColumn(tableView);
 
     }
-    
+
     private void fillColumn(TableView<Position> tableView) {
         for (int i = 1; i <= 50; i++) {
             Position position = new Position('B', i);
@@ -98,22 +101,32 @@ public class App extends Application {
         }
 
     }
-    public void createColumns(TableView<Position> tableView, Table table) {
+
+    public void createColumns(TableView<Position> tableView, Table table, TextField textField) {
         for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
             TableColumn<Position, String> column = new TableColumn<>(alphabet + "");
             column.setCellFactory(TextFieldTableCell.forTableColumn());
 
-            column.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Position, String>>() {
+            column.setOnEditStart(new EventHandler<TableColumn.CellEditEvent<Position, String>>() {
                 @Override
                 public void handle(CellEditEvent<Position, String> event) {
                     TablePosition positionTable = event.getTablePosition();
                     int row = positionTable.getRow() + 1;
                     int columnValue = positionTable.getColumn() + 64;
                     char column = (char) columnValue;
+                    textField.setText(column + "" + row);
+                }
 
-                    Position position = new Position(column, row);
+            });
+
+            column.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Position, String>>() {
+                @Override
+                public void handle(CellEditEvent<Position, String> event) {
+                    TablePosition positionTable = event.getTablePosition();
+                    Position position = obtainPosition(positionTable);
+
                     table.write(event.getNewValue(), position);
-                    
+
                 }
             });
             column.setMinWidth(90);
@@ -121,5 +134,15 @@ public class App extends Application {
             column.setReorderable(false);
         }
     }
-                  
+
+    private Position obtainPosition(TablePosition positionTable) {
+        int row = positionTable.getRow() + 1;
+        int columnValue = positionTable.getColumn() + 64;
+        char column = (char) columnValue;
+
+        Position position = new Position(column, row);
+        return position;
+
+    }
+
 }
