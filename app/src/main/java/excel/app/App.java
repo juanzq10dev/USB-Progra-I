@@ -1,14 +1,10 @@
 package excel.app;
 
-import java.io.BufferedReader;
-import java.io.File;
-
 import excel.list.Position;
 import excel.list.Table;
 import javafx.application.Application;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,15 +15,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    private static final double POSITION_TEXTFIELD_WIDTH = 250;
+    private static final double BORDER_PANE_MAX_LENGHT = 1000;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -37,11 +34,12 @@ public class App extends Application {
         Table table = new Table();
         TableView<Position> tableView = new TableView<>();
         tableView.setEditable(true);
+        tableView.getSelectionModel().setCellSelectionEnabled(true);
 
         createVoidColumn(tableView);
 
         TextField positionField = new TextField();
-        positionField.setPrefWidth(250);
+        positionField.setPrefWidth(POSITION_TEXTFIELD_WIDTH);
         createColumns(tableView, table, positionField);
 
         HBox hBox = new HBox();
@@ -50,12 +48,13 @@ public class App extends Application {
         BorderPane root = new BorderPane();
         root.setTop(gridPane);
         root.setCenter(tableView);
-        Scene scene = new Scene(root, Double.MAX_VALUE, 1000);
+        Scene scene = new Scene(root, Double.MAX_VALUE, BORDER_PANE_MAX_LENGHT);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public GridPane createToolBar(HBox hBox, TextField positionField) {
+
         GridPane gridPane = new GridPane();
         hBox = new HBox();
         ToolBar toolBar = new ToolBar();
@@ -68,8 +67,10 @@ public class App extends Application {
         TextField textField = new TextField();
         Label positionLabel = new Label("Position:");
 
-        textField.setPrefWidth(1500);
-        hBox.getChildren().addAll(label, textField, positionLabel ,positionField);
+        final double TEXTFIELD_WIDTH = 1500;
+        textField.setPrefWidth(TEXTFIELD_WIDTH);
+
+        hBox.getChildren().addAll(label, textField, positionLabel, positionField);
         toolBar.getItems().addAll(fileButton, editButton, viewButton, insertButton, formatButton);
 
         ColumnConstraints column1 = new ColumnConstraints();
@@ -126,7 +127,6 @@ public class App extends Application {
                     Position position = obtainPosition(positionTable);
 
                     table.write(event.getNewValue(), position);
-
                 }
             });
             column.setMinWidth(90);
@@ -144,5 +144,4 @@ public class App extends Application {
         return position;
 
     }
-
 }

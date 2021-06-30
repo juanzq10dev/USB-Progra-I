@@ -22,17 +22,21 @@ public class Concat extends Operator{
 
     private boolean listIsValid(Object[] list) {
         for(Object object: list) {
+
             boolean objectIsNotString = object.getClass() != String.class;
             boolean objectIsNotPosition = object.getClass() != Position.class;
+
             if (objectIsNotPosition && objectIsNotString) {
                 return false; 
             }
         }
+        
         return true;
     }
 
     private String obtainString (Object object) {
         String text = "";
+
         if(object.getClass() == Position.class) {
             Position position = (Position) object;
             text = table.obtainText(position);

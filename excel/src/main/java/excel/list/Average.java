@@ -8,7 +8,7 @@ public class Average extends Operator {
 
     @Override
     public double Calculate(Position initialPosition, Position finalPosition) {
-        double division = 0;
+        double division;
 
         transformList(initialPosition, finalPosition);
         for (double number : numbers) {
