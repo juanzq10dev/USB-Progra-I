@@ -6,26 +6,20 @@ public class PrimeFactors {
 
     public ArrayList<Integer> generate(int number) {
         ArrayList<Integer> primeNumbers = new ArrayList<Integer>();
-        int divider = 2;
-        while (divider <= number) {
-            int product = number % divider;
-            if (product == 0) {
-                if (primeNumbers.size() > 0) {
-                    for (int index : primeNumbers) {
-                        product = divider % index;
-                        if (product == 0) {
-                            break;
-                        }
-                    }
-                    if (product != 0) {
-                        primeNumbers.add(divider);
-                    }
-                } else {
-                    primeNumbers.add(divider);
+        int factor = 2;
+
+        while (factor <= number) {
+            int divisionRest = number % factor;
+            if (divisionRest == 0) {
+                number /= factor;
+                if (primeNumbers.contains(factor) == false) {
+                    primeNumbers.add(factor);
                 }
+            } else {
+                factor++;
             }
-            divider = divider + 1;
         }
         return primeNumbers;
     }
 }
+
